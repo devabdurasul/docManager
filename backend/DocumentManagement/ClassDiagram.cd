@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DocumentManagement.Entities.BaseEntity">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.DepartamentDocumentSign">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIA=</HashCode>
+      <FileName>Entities\DepartamentDocumentSign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.Department">
+    <Position X="19" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAQACAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.DepartmentApproval">
+    <Position X="23.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\DepartmentApproval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.Document">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAUAAAgAAAAAAAAAAQCAAQAAAAABABEAAAAAAE=</HashCode>
+      <FileName>Entities\Document.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.DocumentLog">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Entities\DocumentLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.DocumentTemplate">
+    <Position X="25.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAABAAAAAAAAAEAAAAAAE=</HashCode>
+      <FileName>Entities\DocumentTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.DocumentTemplateEntry">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAIAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\DocumentTemplateEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.Employee">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAIAAAAAAAQAEAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.Operator">
+    <Position X="21.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAGAAAAQACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Operator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.Organization">
+    <Position X="28" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAEAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\Organization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DocumentManagement.Entities.User">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAEQAAAAAAAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DocumentManagement.Entities.DocumentStatus">
+    <Position X="30.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAQAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\DocumentStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DocumentManagement.Entities.RouteStatus">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\RouteStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DocumentManagement.Entities.UserRole">
+    <Position X="30.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
