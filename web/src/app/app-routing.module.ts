@@ -3,13 +3,16 @@ import { RouterModule } from '@angular/router';
 
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
 import { AppLayoutComponent } from './layout/app.layout.component';
+import {TemplateComponent} from "./features/template/template.component";
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
+
             {
                 path: '', component: AppLayoutComponent,
                 children: [
+                    { path: 'template', component: TemplateComponent },
                     { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
