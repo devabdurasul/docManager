@@ -3,9 +3,11 @@
     public class Employee : BaseEntity
     {
         public string Name { get; set; }
-        public Department Department { get; set; }
-        public ICollection<Document> ViewableDocuments { get; set; }
-        public ICollection<Document> ApprovedDocuments { get; set; }
-        public ICollection<Document> RejectedDocuments { get; set; }
+
+        public Guid DepartmentId { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual List<Document> ViewableDocuments { get; set; }
+        public virtual List<Document> ApprovedDocuments { get; set; }
+        public virtual List<Document> RejectedDocuments { get; set; }
     }
 }

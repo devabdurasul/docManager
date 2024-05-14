@@ -1,4 +1,6 @@
 using DocumentManagement;
+using DocumentManagement.Entities;
+using DocumentManagement.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,12 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
            options.UseSqlServer("data source=localhost;Database=DocManager;integrated security=True;TrustServerCertificate=True;"));
+
+builder.Services.AddTransient(typeof(IGenericService<>), typeof(GenericService<>));
+builder.Services.AddTransient(typeof(IGenericService<User>), typeof(UserService));
+builder.Services.AddTransient(typeof(IGenericService<Department>), typeof(DepartmentService));
+builder.Services.AddTransient(typeof(IGenericService<Document>), typeof(DocumentService));
+builder.Services.AddTransient(typeof(IGenericService<DocumentTemplate>), typeof(DocumentTemplateService));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

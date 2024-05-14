@@ -4,8 +4,11 @@
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public User CreatedBy { get; set; }
+
+        public Guid CreatedById { get; set; }
+        public virtual User CreatedBy { get; set; }
         public DateTime DateCreated { get; set; }
-        public ICollection<DepartmentApproval> AssignedDepartments { get; set; }
+        public virtual List<Document> Documents { get; set; }
+        public virtual List<DepartmentApproval> AssignedDepartments { get; set; }
     }
 }

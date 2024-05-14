@@ -7,6 +7,7 @@
 		<PackageReference Include="HotChocolate.Data.EntityFramework" Version="14.0.0-p.100" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
 			<PrivateAssets>all</PrivateAssets>

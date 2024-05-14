@@ -4,13 +4,20 @@
     {
         public string Name { get; set; }
         public string Content { get; set; }
-        public User CreatedBy { get; set; }
+
+        public Guid CreatedById { get; set; }
+        public virtual User CreatedBy { get; set; }
         public DateTime DateCreated { get; set; }
         public string DocumentNumber { get; set; }
         public DocumentStatus Status { get; set; }
         public string FilePath { get; set; }
-        public DocumentTemplate AssociatedTemplate { get; set; }
-        public DepartamentDocumentSign AssignedRoute { get; set; }
-        public ICollection<DocumentLog> Logs { get; set; }
+
+        public Guid AssociatedTemplateId { get; set; }
+        public virtual DocumentTemplate AssociatedTemplate { get; set; }
+
+        public Guid AssignedRouteId { get; set; }
+        public virtual DepartamentDocumentSign AssignedRoute { get; set; }
+
+        public virtual List<DocumentLog> Logs { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace DocumentManagement
                 Name = "SRP",
             };
             context.Organizations.Add(organization);
-            await context.SaveChangesAsync();
 
             // Create Users
             var adminUser = new User
@@ -46,13 +45,6 @@ namespace DocumentManagement
                 Role = UserRole.Employee
             };
             context.Users.AddRange(adminUser, operatorUser, employeeUser);
-            await context.SaveChangesAsync();
-
-            var department = new Department()
-            {
-                Name = "Bugalteriya",
-                Organization = organization
-            };
 
             // Create Document Templates
             var template1 = new DocumentTemplate
@@ -70,8 +62,6 @@ namespace DocumentManagement
                 DateCreated = DateTime.UtcNow
             };
             context.DocumentTemplates.AddRange(template1, template2);
-            await context.SaveChangesAsync();
-
 
             // Create Departments
             var department1 = new Department
@@ -87,7 +77,6 @@ namespace DocumentManagement
                 Templates = new List<DocumentTemplate> { }
             };
             context.Departments.AddRange(department1, department2);
-            await context.SaveChangesAsync();
 
             // Create Department Approvals
             var departmentApproval1 = new DepartmentApproval
@@ -101,12 +90,11 @@ namespace DocumentManagement
                 Department = department2
             };
             context.DepartmentApprovals.AddRange(departmentApproval1, departmentApproval2);
-            await context.SaveChangesAsync();
 
             // Create Document Flow Routes
             var route1 = new DepartamentDocumentSign
             {
-                AssignedDepartment = department,
+                AssignedDepartment = department1,
                 Comment = "Route 1 description",
                 Status = RouteStatus.Active
             };
@@ -117,7 +105,6 @@ namespace DocumentManagement
                 Status = RouteStatus.Active
             };
             context.DepartamentDocumentSigns.AddRange(route1, route2);
-            await context.SaveChangesAsync();
 
             // Create Documents
             var document1 = new Document
@@ -141,11 +128,9 @@ namespace DocumentManagement
                 AssignedRoute = route2
             };
             context.Documents.AddRange(document1, document2);
-            await context.SaveChangesAsync();
 
             template1.AssignedDepartments = new List<DepartmentApproval> { departmentApproval1, departmentApproval2 };
             template2.AssignedDepartments = new List<DepartmentApproval> { departmentApproval2, departmentApproval1 };
-            await context.SaveChangesAsync();
 
             // Create Document Logs
             var log1 = new DocumentLog
@@ -160,8 +145,9 @@ namespace DocumentManagement
             };
             document1.Logs = new List<DocumentLog> { log1 };
             document2.Logs = new List<DocumentLog> { log2 };
+
+            // Save all changes once
             await context.SaveChangesAsync();
         }
     }
-
 }
