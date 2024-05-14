@@ -23,7 +23,7 @@ namespace DocumentManagement
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Enable lazy loading
-            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.UseLazyLoadingProxies();
 
             base.OnConfiguring(optionsBuilder);
         }
