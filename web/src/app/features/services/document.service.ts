@@ -35,6 +35,17 @@ export class DocumentService {
         return of(true); // Simulated success response
     }
 
+    deleteDocumentByGuid(guid: any): Observable<any> {
+        const data = this.getDocumentData();
+        const index = data.documents.findIndex(doc => doc.docId === guid);
+        if (index !== -1) {
+            data.documents.splice(index, 1);
+            this.setDocumentData(data);
+            return of(true); // Simulated success response
+        }
+        return of(false); // Document not found
+    }
+
     addDepartment(department: string): Observable<any> {
         const data = this.getDocumentData();
         data.departments.push(department);
