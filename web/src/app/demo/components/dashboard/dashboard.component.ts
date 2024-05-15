@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { guid } from '@fullcalendar/core/internal';
-import { v4 as uuidv4 } from 'uuid';
+import {Component, OnInit} from '@angular/core';
+import {guid} from "@fullcalendar/core/internal";
+import {v4 as uuidv4} from 'uuid';
 
 import { DocumentService } from '../../../features/services/document.service';
 
@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
     display: boolean = false;
     selectedDepartment: any;
 
-    constructor(private documentService: DocumentService) {}
+    constructor(private documentService: DocumentService) {
+    }
 
     ngOnInit(): void {
         this.fetchDocuments();
@@ -81,4 +82,23 @@ export class DashboardComponent implements OnInit {
         this.documentService.deleteDepartment(value);
         this.fetchDepartments();
     }
+
+    moveDocumentToNextDepartment(documentId: any, currentDepartment: string) {
+        this.documentService.getNextDepartment(currentDepartment).subscribe(nextDepartment => {
+            if (nextDepartment) {
+                this.documentService.moveDocumentToDepartment(documentId, nextDepartment).subscribe(success => {
+                    if (success) {
+                        console.log('Document moved to next department successfully.');
+                    } else {
+                        console.error('Failed to move document to next department.');
+                    }
+                });
+            } else {
+                console.warn('No next department found.');
+            }
+        });
+        this.fetchDocuments();
+    }
+
+    protected readonly guid = guid;
 }
