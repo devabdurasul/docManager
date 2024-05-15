@@ -1,105 +1,70 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-import { Product } from '../../api/product';
-import { ProductService } from '../../service/product.service';
-import { Subscription, debounceTime } from 'rxjs';
-import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { Component, OnInit } from '@angular/core';
+import {DocumentService} from "../../../features/services/document.service";
 
 @Component({
+    selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit {
+    departments: string[] = [];
+    documents: any[] = [];
+    newDepartment: string;
+    docName: string;
+    docContent: any;
+    display: boolean = false;
 
-    items!: MenuItem[];
+    selectedDepartment: any;
 
-    products!: Product[];
+    constructor(private documentService: DocumentService) { }
 
-    chartData: any;
-
-    chartOptions: any;
-
-    subscription!: Subscription;
-
-    constructor(private productService: ProductService, public layoutService: LayoutService) {
-        this.subscription = this.layoutService.configUpdate$
-        .pipe(debounceTime(25))
-        .subscribe((config) => {
-            this.initChart();
-        });
+    ngOnInit(): void {
+        this.fetchDocuments();
+        this.fetchDepartments();
     }
 
-    ngOnInit() {
-        this.initChart();
-        this.productService.getProductsSmall().then(data => this.products = data);
-
-        this.items = [
-            { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-            { label: 'Remove', icon: 'pi pi-fw pi-minus' }
-        ];
-    }
-
-    initChart() {
-        const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-        this.chartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    borderColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    tension: .4
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--green-600'),
-                    borderColor: documentStyle.getPropertyValue('--green-600'),
-                    tension: .4
-                }
-            ]
-        };
-
-        this.chartOptions = {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: textColor
-                    }
-                }
+    fetchDocuments() {
+        this.documentService.getDocuments().subscribe(
+            documents => {
+                this.documents = documents;
             },
-            scales: {
-                x: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                }
+            error => {
+                console.error('Error fetching documents:', error);
             }
-        };
+        );
     }
 
-    ngOnDestroy() {
-        if (this.subscription) {
-            this.subscription.unsubscribe();
-        }
+    fetchDepartments() {
+        this.documentService.getDepartments().subscribe(
+            departments => {
+                this.departments = departments;
+            },
+            error => {
+                console.error('Error fetching departments:', error);
+            }
+        );
+    }
+
+    addDocument(value: any): void {
+        this.display = true;
+        this.selectedDepartment = value;
+
+    }
+
+    saveDocument(value: any): void {
+        this.display = false;
+        console.log(this.docContent);
+
+        // this.documentService.addDocument(value);
+        // this.fetchDocuments();
+    }
+
+    addDepartment(value: string): void {
+        this.documentService.addDepartment(value);
+        this.fetchDepartments();
+    }
+
+    deleteDepartment(value: string): void {
+        this.documentService.deleteDepartment(value);
+        this.fetchDepartments();
     }
 }

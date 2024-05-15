@@ -1,0 +1,23 @@
+{
+    "departments": ["Department A", "Department B", "Department C"],
+    "documents": [
+        {
+            "id": 1,
+            "title": "Vacation Request",
+            "department": "Department A",
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "title": "Expense Report",
+            "department": "Department B",
+            "status": "Approved"
+        },
+        {
+            "id": 3,
+            "title": "Project Proposal",
+            "department": "Department C",
+            "status": "Pending"
+        }
+    ]
+}
