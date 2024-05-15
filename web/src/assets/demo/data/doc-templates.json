@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Doc Template 1",
+            "description": "Doc Template 1 description",
+            "file": "file"
+        },
+        {
+            "id": 2,
+            "name": "Doc Template 2",
+            "description": "Doc Template 2 description",
+            "file": "file"
+        }
+    ]
+}

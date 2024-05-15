@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@tinymce/tinymce-angular": "^8.0.0",
+    "guid-typescript": "^1.0.9",
+    "uuid": "^9.0.1"
+  }
+}

@@ -1,0 +1,84 @@
+<div>
+    <div class="col-12 lg:col-6">
+        <div class="">
+            <h5></h5>
+            <p-dialog
+                header="Template"
+                [(visible)]="display"
+                [modal]="true"
+                showEffect="fade"
+                [style]="{ width: '75vw' }"
+                [breakpoints]="{ '960px': '75vw' }"
+            >
+                <editor
+                    apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
+                    [init]="{}"
+                ></editor>
+                <ng-template pTemplate="footer">
+                    <button
+                        pButton
+                        icon="pi pi-check"
+                        (click)="display = false"
+                        label="Save"
+                        class="p-button-outlined"
+                    ></button>
+                </ng-template>
+            </p-dialog>
+            <div class="grid">
+                <div class="col-12">
+                    <button
+                        (click)="display = true"
+                        pButton
+                        icon="pi pi-plus"
+                        label="Add Template"
+                    ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <h5>Document Templates</h5>
+
+            <p-table
+                [value]="customers3"
+                scrollDirection="both"
+                [scrollable]="true"
+                scrollHeight="400px"
+                styleClass=""
+                responsiveLayout="scroll"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th
+                            style="width: 500px"
+                            alignFrozen="left"
+                            [frozen]="idFrozen"
+                        >
+                            Id
+                        </th>
+                        <th style="width: 500px">Name</th>
+                        <th style="width: 500px">Description</th>
+                        <th style="width: 500px">File</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-customer>
+                    <tr>
+                        <td style="width: 500px">{{ customer.id }}</td>
+                        <td style="width: 500px">{{ customer.name }}</td>
+                        <td style="width: 500px">{{ customer.description }}</td>
+                        <td style="width: 500px">
+                            <i
+                                [class]="'pi pi-' + customer.file"
+                                style="font-size: 2rem"
+                            ></i>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

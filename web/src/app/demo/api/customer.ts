@@ -18,3 +18,10 @@ export interface Customer {
     activity?: number;
     representative?: Representative;
 }
+
+export interface DocTemplate {
+    id?: number;
+    name?: string;
+    description?: string;
+    file?: string;
+}

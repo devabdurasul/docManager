@@ -12,3 +12,63 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/demo/styles/flags/flags.css";
 @import "assets/demo/styles/badges.scss";
 @import "assets/demo/styles/code.scss";
+
+
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.departments {
+    display: flex;
+    flex: 1;
+}
+
+.department {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.department h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.documents {
+    margin-top: 15px;
+}
+
+.document {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.document p {
+    margin: 0;
+}
+
+.add-department, .add-document {
+    margin-top: 20px;
+}
+
+.add-department input, .add-document input, .add-document button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.add-department button, .add-document button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
