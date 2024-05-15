@@ -4,30 +4,30 @@
             <form [formGroup]="form">
                 <h5></h5>
                 <p-dialog
-                    header="Template"
+                    header="Шаблон"
                     [(visible)]="display"
                     [modal]="true"
                     showEffect="fade"
                     [style]="{ width: '75vw' }"
                     [breakpoints]="{ '960px': '75vw' }"
                 >
-                    <h5>Name</h5>
+                    <h5>Ном</h5>
                     <input
                         formControlName="name"
                         class="w-full"
                         pInputText
                         id="float-input"
                         type="text"
-                        placeholder="Name"
+                        placeholder="Ном"
                     />
 
-                    <h5>Description</h5>
+                    <h5>Тавсифи</h5>
                     <textarea
                         formControlName="description"
                         class="w-full mb-4"
                         rows="3"
                         cols="30"
-                        placeholder="Your description"
+                        placeholder="Тавсифи шумо"
                         pInputTextarea
                     ></textarea>
                     <editor
@@ -41,7 +41,7 @@
                             pButton
                             icon="pi pi-check"
                             (click)="onSave()"
-                            label="Save"
+                            label="нигоҳ доред"
                             class="p-button-outlined"
                         ></button>
                     </ng-template>
@@ -53,7 +53,7 @@
                         (click)="display = true"
                         pButton
                         icon="pi pi-plus"
-                        label="Add Template"
+                        label="Иловаи Шаблон"
                     ></button>
                 </div>
             </div>
@@ -64,7 +64,7 @@
 <div class="grid">
     <div class="col-12">
         <div class="card">
-            <h5>Document Templates</h5>
+            <h5>Шаблонҳои ҳуҷҷат</h5>
 
             <p-table
                 [value]="customers3"
@@ -83,9 +83,9 @@
                         >
                             Id
                         </th>
-                        <th style="width: 500px">Name</th>
-                        <th style="width: 500px">Description</th>
-                        <th style="width: 500px">File</th>
+                        <th style="width: 500px">Ном</th>
+                        <th style="width: 500px">Тавсифи</th>
+                        <th style="width: 500px">Файл</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-customer>

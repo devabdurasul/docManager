@@ -6,7 +6,7 @@
         <Label x:Name="OpName" FontSize="16"  />
         <Label x:Name="Desc" FontSize="16"  />
 
-        <Label Text="Ҳуҷҷатҳо" FontSize="18" FontAttributes="Bold" />
+        <Label Text="Ҳуҷҷатҳо" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center"/>
 
         <!-- Search Text Input -->
         <Entry Placeholder="Ҷустуҷӯи ҳуҷҷатҳо"
@@ -32,7 +32,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Text="Шаблонҳои ҳуҷҷат" FontSize="18" FontAttributes="Bold" />
+        <Label Text="Шаблонҳои ҳуҷҷат" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center"/>
         <!-- Search Text Input -->
         <Entry Placeholder="Ҷустуҷӯи шаблони ҳуҷҷатҳо"
            FontSize="16"
