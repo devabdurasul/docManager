@@ -19,8 +19,9 @@
             // Initialize test data for DocumentTemplates
             DocumentTemplates = new List<DocumentTemplate>
             {
+                new DocumentTemplate { TemplateName = "Ариза барои фалон", TemplateDescription = "Шаблон барои навиштани Ариза барои фалон" },
                 new DocumentTemplate { TemplateName = "Пешниҳоди лоиҳа", TemplateDescription = "Шаблон барои навиштани пешниҳодҳои лоиҳа" },
-                new DocumentTemplate { TemplateName = "Expense Report", TemplateDescription = "Шаблон барои навиштани Ҳисоботи хароҷот" },
+                new DocumentTemplate { TemplateName = "Ҳисоботи хароҷот", TemplateDescription = "Шаблон барои навиштани Ҳисоботи хароҷот" },
                 new DocumentTemplate { TemplateName = "Рӯзномаи ҷаласа", TemplateDescription = "Шаблон барои навиштани Рӯзномаи ҷаласа" },
             };
 
@@ -32,7 +33,15 @@
             {
                 new Document
                 {
-                    DocumentName = "Пешниҳод барои стратегияи маркетинг",
+                     DocumentName = "Ариза барои пешапрдохт",
+                     DocumentTitle = "Ариза барои пешапрдохт",
+                     DocumentNumber = "MS-2024-234",
+                     DocumentContent = "Ин Аризаи маркетинги пешниҳодшударо барои соли 2024 муайян мекунад...",
+                     DocumentStatus = DocumentStatus.Rejected
+                },
+                new Document
+                {
+                     DocumentName = "Пешниҳод барои стратегияи маркетинг",
                      DocumentTitle = "Пешниҳоди стратегияи маркетингӣ",
                      DocumentNumber = "MS-2023-001",
                      DocumentContent = "Ин ҳуҷҷат стратегияи маркетинги пешниҳодшударо барои соли 2023 муайян мекунад...",
