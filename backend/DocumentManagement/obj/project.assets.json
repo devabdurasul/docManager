@@ -9087,23 +9087,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sanjar\\.nuget\\packages\\": {},
+    "C:\\Users\\sanjar\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\DocumentManagement.csproj",
+      "projectUniqueName": "C:\\Users\\sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\DocumentManagement.csproj",
       "projectName": "DocumentManagement",
-      "projectPath": "C:\\Users\\Sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\DocumentManagement.csproj",
-      "packagesPath": "C:\\Users\\Sanjar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\obj\\",
+      "projectPath": "C:\\Users\\sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\DocumentManagement.csproj",
+      "packagesPath": "C:\\Users\\sanjar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sanjar\\Desktop\\docManager\\backend\\DocumentManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sanjar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sanjar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9190,7 +9190,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

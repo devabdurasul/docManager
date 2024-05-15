@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DocumentManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+625b4aa0c2f9809cdbd783c4b96d92094417452a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f283c9a611bbc00995c26a2233ecb71b4b74f51")]
 [assembly: System.Reflection.AssemblyProductAttribute("DocumentManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DocumentManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

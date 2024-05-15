@@ -1,0 +1,59 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocManager.DepartmentDetailPage">
+    <StackLayout Padding="20" Spacing="15">
+        <Label x:Name="DepartmentName" FontSize="16" />
+        <Label x:Name="OpName" FontSize="16"  />
+        <Label x:Name="Desc" FontSize="16"  />
+
+        <Label Text="Ҳуҷҷатҳо" FontSize="18" FontAttributes="Bold" />
+
+        <!-- Search Text Input -->
+        <Entry Placeholder="Ҷустуҷӯи ҳуҷҷатҳо"
+               FontSize="16"
+               PlaceholderColor="Gray"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start"
+               Margin="0,0,0,10" PropertyChanged="docSearch_PropertyChanged" />
+
+        <!-- MyDocuments List -->
+        <ListView x:Name="MyDocuments">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="5">
+                            <Label Text="{Binding DocumentTitle}" FontSize="16" FontAttributes="Bold"  />
+                            <Label Text="{Binding DocumentName}" FontSize="14"  />
+                            <Label Text="{Binding DocumentNumber}" FontSize="14"  />
+                            <Label Text="{Binding DocumentContent}" FontSize="14" />
+                            <Label Text="{Binding DocumentStatus}" FontSize="14" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Text="Шаблонҳои ҳуҷҷат" FontSize="18" FontAttributes="Bold" />
+        <!-- Search Text Input -->
+        <Entry Placeholder="Ҷустуҷӯи шаблони ҳуҷҷатҳо"
+           FontSize="16"
+           PlaceholderColor="Gray"
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="Start"
+           Margin="0,0,0,10" PropertyChanged="docTemplateSearch_PropertyChanged"/>
+
+        <!-- docTemplates List -->
+        <ListView x:Name="docTemplates">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="5">
+                            <Label Text="{Binding TemplateName}" FontSize="16" FontAttributes="Bold"  />
+                            <Label Text="{Binding TemplateDescription}" FontSize="14"  />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+</ContentPage>

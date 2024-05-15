@@ -11,5 +11,6 @@ namespace DocumentManagement.Controllers
         public DocumentController(IGenericService<Document> service) : base(service)
         {
         }
+
     }
 }

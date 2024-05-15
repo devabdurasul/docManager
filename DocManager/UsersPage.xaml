@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocManager.UsersPage">
+
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Main Title -->
+        <Label Text="Истифодабарандагон"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               SemanticProperties.HeadingLevel="Level1" />
+        <!-- Search Text Input -->
+        <Entry Placeholder="Ҷустуҷӯи корбарон"
+               FontSize="16"
+               PlaceholderColor="Gray"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start"
+               Margin="0,0,0,10" Text="{Binding SearchText}" />
+
+        <!-- Department Users -->
+        <Label Text="Шуъбахо"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="DarkBlue"
+               SemanticProperties.HeadingLevel="Level2" />
+        <ListView x:Name="DepartmentListView"
+                  ItemsSource="{Binding FilteredDepartmentUsers}"
+                  HasUnevenRows="True" ItemSelected="DepartmentListView_ItemSelected">
+            <!-- Customize the appearance of each item -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding OperatorName}" FontSize="16" Grid.Row="0" />
+                            <Label Text="{Binding Name}" FontSize="14" Grid.Row="1" TextColor="Gray" />
+                            <Label Text="{Binding Role}" FontSize="12" Grid.Row="2" TextColor="LightGray" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Employee Users -->
+        <Label Text="Кормандон"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="DarkGreen"
+               SemanticProperties.HeadingLevel="Level2" />
+        <ListView x:Name="EmployeeListView"
+                  ItemsSource="{Binding FilteredEmployeeUsers}"
+                  HasUnevenRows="True">
+            <!-- Customize the appearance of each item -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}" FontSize="14" Grid.Row="0" />
+                            <Label Text="{Binding Role}" FontSize="12" Grid.Row="1" TextColor="Gray" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
