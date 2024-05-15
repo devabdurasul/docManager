@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import {map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
@@ -62,5 +63,28 @@ export class DocumentService {
             return of(true); // Simulated success response
         }
         return of(false); // Department not found
+    }
+
+    moveDocumentToDepartment(guid: any, targetDepartment: string): Observable<any> {
+        const data = this.getDocumentData();
+        const index = data.documents.findIndex(doc => doc.docId === guid);
+        if (index !== -1) {
+            data.documents[index].department = targetDepartment;
+            this.setDocumentData(data);
+            return of(true); // Simulated success response
+        }
+        return of(false); // Document not found
+    }
+
+    getNextDepartment(currentDepartment: string): Observable<string> {
+        return this.getDepartments().pipe(
+            map(departments => {
+                const currentIndex = departments.indexOf(currentDepartment);
+                if (currentIndex !== -1 && currentIndex < departments.length - 1) {
+                    return departments[currentIndex + 1];
+                }
+                return null; // No next department found
+            })
+        );
     }
 }

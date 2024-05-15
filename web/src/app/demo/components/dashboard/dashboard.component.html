@@ -9,19 +9,22 @@
 <hr>
 
 <div class="card flex flex-row">
-    <div class="card w-23rem bg-primary-50 mr-3" *ngFor="let department of departments">
+    <div *ngFor="let department of departments; let i = index" class="department"
+        class="card w-23rem bg-primary-50 mr-3">
         <div class="flex flex-row justify-content-between">
             <h5>{{ department }}</h5>
             <div>
                 <button type="button" icon="pi pi-trash" (click)="deleteDepartment(department)"
                         class="p-element p-ripple p-button-rounded p-button-danger p-button p-component p-button-icon-only h-2rem w-2rem mr-1"
                         ng-reflect-icon="pi pi-trash"><span class="p-button-icon pi pi-trash" aria-hidden="true"></span><span
-                    class="p-ink" aria-hidden="true" role="presentation"></span></button>
+                    class="p-ink" aria-hidden="true" role="presentation"></span>
+                </button>
                 <button type="button" icon="pi pi-trash" (click)="addDocument(department)"
                         class="p-element p-ripple p-button-rounded p-button-info p-button p-component p-button-icon-only h-2rem w-2rem"
                         ng-reflect-icon="pi pi-trash"><span class="p-button-icon pi pi-plus"
                                                             aria-hidden="true"></span><span
-                    class="p-ink" aria-hidden="true" role="presentation"></span></button>
+                    class="p-ink" aria-hidden="true" role="presentation"></span>
+                </button>
             </div>
         </div>
 
@@ -29,24 +32,20 @@
 
         <div class="documents">
             <div *ngFor="let document of documents">
-                <app-kanban-card *ngIf="document.department === department" _ngcontent-ng-c4248747055="" cdkdrag=""
-                                 cdkdraghandle=""
-                                 class="cdk-drag cdk-drag-handle ng-star-inserted" style="">
+                <app-kanban-card *ngIf="document.department === department">
                     <div
                         class="flex mb-2 surface-card flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer border-round"
                         id="21">
                         <div class="flex justify-content-between align-items-center"><span
                             class="text-900 font-semibold">{{ document.docName }}</span>
                             <div>
-                                <button pbutton="" pripple="" type="button" icon="pi pi-ellipsis-v" (click)="deleteDocument(document.docId)"
-                                        class="p-element p-ripple p-button-rounded p-button-text p-button-secondary p-trigger p-button p-component p-button-icon-only">
-                                    <span class="p-button-icon pi pi-trash" style="color: red;" aria-hidden="true"></span><span
-                                    class="p-ink" aria-hidden="true" role="presentation"></span></button>
+                                <span class="p-button-icon pi pi-trash mr-3" style="color: red;" aria-hidden="true" (click)="deleteDocument(document.docId)"></span>
+                                <span class="p-button-icon pi pi-check" style="color: green;" aria-hidden="true" (click)="moveDocumentToNextDepartment(document.docId, department)"></span>
                             </div>
                         </div>
-                        <div class="text-700 ng-star-inserted" style="word-break: break-word;">{{document.docDescription}}
+                        <div class="text-700" style="word-break: break-word;">{{document.docDescription}}
                         </div><!---->
-                        <p-progressbar class="p-element ng-star-inserted">
+                        <p-progressbar class="p-element">
                             <div role="progressbar" aria-valuemin="0" aria-valuenow="50" aria-valuemax="100"
                                  data-pc-name="progressbar" data-pc-section="root"
                                  class="p-progressbar p-component p-progressbar-determinate" style="height: 0.5rem;">
@@ -60,18 +59,17 @@
                             <p-avatargroup class="p-element">
                                 <div class="p-avatar-group p-component">
                                     <p-avatar shape="circle" styleclass="border-2 surface-border"
-                                              class="p-element ng-star-inserted">
+                                              class="p-element">
                                         <div data-pc-name="avatar"
                                              class="border-2 surface-border p-avatar p-component p-avatar-image p-avatar-circle">
-                                            <img src="assets/demo/images/avatar/ionibowcher.png"
-                                                 class="ng-star-inserted"></div>
+                                            <img src="assets/demo/images/avatar/ionibowcher.png"></div>
                                     </p-avatar></div>
                             </p-avatargroup>
-                            <div class="flex align-items-center gap-3 ng-star-inserted"><!----><span
-                                class="text-900 font-semibold ng-star-inserted"><i
-                                class="pi pi-paperclip text-700 mr-2"></i>1</span><!----><span
-                                class="text-900 font-semibold ng-star-inserted"><i
-                                class="pi pi-clock text-700 mr-2"></i>May 15</span><!----></div><!----></div>
+                            <div class="flex align-items-center gap-3"><span
+                                class="text-900 font-semibold"><i
+                                class="pi pi-paperclip text-700 mr-2"></i>1</span><span
+                                class="text-900 font-semibold"><i
+                                class="pi pi-clock text-700 mr-2"></i>May 15</span></div></div>
                     </div>
                 </app-kanban-card>
             </div>

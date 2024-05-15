@@ -1,36 +1,59 @@
 <div>
     <div class="col-12 lg:col-6">
         <div class="">
-            <h5></h5>
-            <p-dialog
-                header="Template"
-                [(visible)]="display"
-                [modal]="true"
-                showEffect="fade"
-                [style]="{ width: '75vw' }"
-                [breakpoints]="{ '960px': '75vw' }"
-            >
-                <editor
-                    apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
-                    [init]="{}"
-                ></editor>
-                <ng-template pTemplate="footer">
-                    <button
-                        pButton
-                        icon="pi pi-check"
-                        (click)="display = false"
-                        label="Save"
-                        class="p-button-outlined"
-                    ></button>
-                </ng-template>
-            </p-dialog>
+            <form [formGroup]="form">
+                <h5></h5>
+                <p-dialog
+                    header="Шаблон"
+                    [(visible)]="display"
+                    [modal]="true"
+                    showEffect="fade"
+                    [style]="{ width: '75vw' }"
+                    [breakpoints]="{ '960px': '75vw' }"
+                >
+                    <h5>Ном</h5>
+                    <input
+                        formControlName="name"
+                        class="w-full"
+                        pInputText
+                        id="float-input"
+                        type="text"
+                        placeholder="Ном"
+                    />
+
+                    <h5>Тавсифи</h5>
+                    <textarea
+                        formControlName="description"
+                        class="w-full mb-4"
+                        rows="3"
+                        cols="30"
+                        placeholder="Тавсифи шумо"
+                        pInputTextarea
+                    ></textarea>
+                    <editor
+                        formControlName="file"
+                        apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
+                        [init]="{}"
+                    ></editor>
+
+                    <ng-template pTemplate="footer">
+                        <button
+                            pButton
+                            icon="pi pi-check"
+                            (click)="onSave()"
+                            label="нигоҳ доред"
+                            class="p-button-outlined"
+                        ></button>
+                    </ng-template>
+                </p-dialog>
+            </form>
             <div class="grid">
                 <div class="col-12">
                     <button
                         (click)="display = true"
                         pButton
                         icon="pi pi-plus"
-                        label="Add Template"
+                        label="Иловаи Шаблон"
                     ></button>
                 </div>
             </div>
@@ -41,7 +64,7 @@
 <div class="grid">
     <div class="col-12">
         <div class="card">
-            <h5>Document Templates</h5>
+            <h5>Шаблонҳои ҳуҷҷат</h5>
 
             <p-table
                 [value]="customers3"
@@ -60,9 +83,9 @@
                         >
                             Id
                         </th>
-                        <th style="width: 500px">Name</th>
-                        <th style="width: 500px">Description</th>
-                        <th style="width: 500px">File</th>
+                        <th style="width: 500px">Ном</th>
+                        <th style="width: 500px">Тавсифи</th>
+                        <th style="width: 500px">Файл</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-customer>
@@ -72,7 +95,7 @@
                         <td style="width: 500px">{{ customer.description }}</td>
                         <td style="width: 500px">
                             <i
-                                [class]="'pi pi-' + customer.file"
+                                [class]="'pi pi-' + 'file'"
                                 style="font-size: 2rem"
                             ></i>
                         </td>

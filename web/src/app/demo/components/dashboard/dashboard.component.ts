@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DocumentService} from "../../../features/services/document.service";
-import {Guid} from "guid-typescript";
 import {guid} from "@fullcalendar/core/internal";
 import {v4 as uuidv4} from 'uuid';
+
+import { DocumentService } from '../../../features/services/document.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -32,10 +32,10 @@ export class DashboardComponent implements OnInit {
 
     fetchDocuments() {
         this.documentService.getDocuments().subscribe(
-            documents => {
+            (documents) => {
                 this.documents = documents;
             },
-            error => {
+            (error) => {
                 console.error('Error fetching documents:', error);
             }
         );
@@ -47,10 +47,10 @@ export class DashboardComponent implements OnInit {
 
     fetchDepartments() {
         this.documentService.getDepartments().subscribe(
-            departments => {
+            (departments) => {
                 this.departments = departments;
             },
-            error => {
+            (error) => {
                 console.error('Error fetching departments:', error);
             }
         );
@@ -59,13 +59,12 @@ export class DashboardComponent implements OnInit {
     addDocument(value: any): void {
         this.display = true;
         this.selectedDepartment = value;
-
     }
 
     saveDocument(value: any): void {
         this.display = false;
         this.documentService.addDocument(value);
-        window.location.reload()
+        window.location.reload();
         this.fetchDocuments();
     }
 
@@ -84,6 +83,22 @@ export class DashboardComponent implements OnInit {
         this.fetchDepartments();
     }
 
-    public readonly Guid = Guid;
+    moveDocumentToNextDepartment(documentId: any, currentDepartment: string) {
+        this.documentService.getNextDepartment(currentDepartment).subscribe(nextDepartment => {
+            if (nextDepartment) {
+                this.documentService.moveDocumentToDepartment(documentId, nextDepartment).subscribe(success => {
+                    if (success) {
+                        console.log('Document moved to next department successfully.');
+                    } else {
+                        console.error('Failed to move document to next department.');
+                    }
+                });
+            } else {
+                console.warn('No next department found.');
+            }
+        });
+        this.fetchDocuments();
+    }
+
     protected readonly guid = guid;
 }
