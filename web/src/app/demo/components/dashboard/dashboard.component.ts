@@ -3,6 +3,7 @@ import {guid} from "@fullcalendar/core/internal";
 import {v4 as uuidv4} from 'uuid';
 
 import { DocumentService } from '../../../features/services/document.service';
+import {SelectItem} from "primeng/api";
 
 @Component({
     selector: 'app-dashboard',
@@ -18,12 +19,18 @@ export class DashboardComponent implements OnInit {
     display: boolean = false;
     selectedDepartment: any;
 
+    templates: SelectItem[] = [];
+    templatesObj: SelectItem[] = [];
+
+    selectedDrop: SelectItem = { value: '' };
+
     constructor(private documentService: DocumentService) {
     }
 
     ngOnInit(): void {
         this.fetchDocuments();
         this.fetchDepartments();
+        this.fetchTemplates();
     }
 
     guid2() {
@@ -37,6 +44,22 @@ export class DashboardComponent implements OnInit {
             },
             (error) => {
                 console.error('Error fetching documents:', error);
+            }
+        );
+    }
+
+    fetchTemplates() {
+        this.documentService.getTemplates().subscribe(
+            (templates) => {
+                console.log(templates);
+                templates.forEach((temp) => {
+                    this.templates.push(temp.name);
+                    this.templatesObj.push(temp);
+                    }
+                );
+            },
+            (error) => {
+                console.error('Error fetching templates:', error);
             }
         );
     }
@@ -81,6 +104,14 @@ export class DashboardComponent implements OnInit {
     deleteDepartment(value: string): void {
         this.documentService.deleteDepartment(value);
         this.fetchDepartments();
+    }
+
+    populate(){
+        if(this.selectedDrop) {
+            let templ: any = this.templates.find((t:any) => t.name == this.selectedDrop);
+            console.log(templ);
+            this.docContent = templ.file;
+        }
     }
 
     moveDocumentToNextDepartment(documentId: any, currentDepartment: string) {
