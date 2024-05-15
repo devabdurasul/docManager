@@ -74,7 +74,7 @@
             style="width: 100%; height: 2px"
         ></div>
 
-        <div class="documents">
+        <div class="documents" style="min-height: 250px;">
             <div *ngFor="let document of documents">
                 <app-kanban-card *ngIf="document.department === department">
                     <div
@@ -170,6 +170,7 @@
         </div>
     </div>
 </div>
+
 
 <p-dialog
     header="Add document"

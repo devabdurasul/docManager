@@ -29,6 +29,11 @@ export class DocumentService {
         return of(data.documents);
     }
 
+    getTemplates(): Observable<any[]> {
+        const templates = localStorage.getItem('template');
+        return of(templates ? JSON.parse(templates) : []);
+    }
+
     addDocument(document: any): Observable<any> {
         const data = this.getDocumentData();
         data.documents.push(document);

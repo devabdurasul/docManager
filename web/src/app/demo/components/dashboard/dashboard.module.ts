@@ -6,6 +6,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { StyleClassModule } from 'primeng/styleclass';
@@ -30,6 +31,7 @@ import { DashboardComponent } from './dashboard.component';
         EditorComponent,
         AvatarModule,
         ReactiveFormsModule,
-    ],
+        DropdownModule,
+    ]
 })
 export class DashboardModule {}
