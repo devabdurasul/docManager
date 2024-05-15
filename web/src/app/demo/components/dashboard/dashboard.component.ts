@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DocumentService} from "../../../features/services/document.service";
+import {Guid} from "guid-typescript";
+import {guid} from "@fullcalendar/core/internal";
+import {v4 as uuidv4} from 'uuid';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,16 +13,21 @@ export class DashboardComponent implements OnInit {
     documents: any[] = [];
     newDepartment: string;
     docName: string;
+    docDescription: string;
     docContent: any;
     display: boolean = false;
-
     selectedDepartment: any;
 
-    constructor(private documentService: DocumentService) { }
+    constructor(private documentService: DocumentService) {
+    }
 
     ngOnInit(): void {
         this.fetchDocuments();
         this.fetchDepartments();
+    }
+
+    guid2() {
+        return uuidv4();
     }
 
     fetchDocuments() {
@@ -31,6 +39,10 @@ export class DashboardComponent implements OnInit {
                 console.error('Error fetching documents:', error);
             }
         );
+    }
+
+    cancel() {
+        window.location.reload();
     }
 
     fetchDepartments() {
@@ -52,10 +64,14 @@ export class DashboardComponent implements OnInit {
 
     saveDocument(value: any): void {
         this.display = false;
-        console.log(this.docContent);
+        this.documentService.addDocument(value);
+        window.location.reload()
+        this.fetchDocuments();
+    }
 
-        // this.documentService.addDocument(value);
-        // this.fetchDocuments();
+    deleteDocument(value: any): void {
+        this.documentService.deleteDocumentByGuid(value);
+        this.fetchDocuments();
     }
 
     addDepartment(value: string): void {
@@ -67,4 +83,7 @@ export class DashboardComponent implements OnInit {
         this.documentService.deleteDepartment(value);
         this.fetchDepartments();
     }
+
+    public readonly Guid = Guid;
+    protected readonly guid = guid;
 }

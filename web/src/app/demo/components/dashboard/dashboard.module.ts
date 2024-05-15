@@ -12,6 +12,7 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import {DialogModule} from "primeng/dialog";
 import {EditorComponent} from "@tinymce/tinymce-angular";
+import {AvatarModule} from "primeng/avatar";
 
 @NgModule({
     declarations: [DashboardComponent],
@@ -27,6 +28,7 @@ import {EditorComponent} from "@tinymce/tinymce-angular";
         DashboardsRoutingModule,
         DialogModule,
         EditorComponent,
+        AvatarModule,
     ]
 })
 export class DashboardModule { }
