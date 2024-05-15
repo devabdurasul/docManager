@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {DocumentService} from "../../../features/services/document.service";
-import {Guid} from "guid-typescript";
-import {guid} from "@fullcalendar/core/internal";
-import {v4 as uuidv4} from 'uuid';
+import { Component, OnInit } from '@angular/core';
+import { guid } from '@fullcalendar/core/internal';
+import { v4 as uuidv4 } from 'uuid';
+
+import { DocumentService } from '../../../features/services/document.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -18,8 +18,7 @@ export class DashboardComponent implements OnInit {
     display: boolean = false;
     selectedDepartment: any;
 
-    constructor(private documentService: DocumentService) {
-    }
+    constructor(private documentService: DocumentService) {}
 
     ngOnInit(): void {
         this.fetchDocuments();
@@ -32,10 +31,10 @@ export class DashboardComponent implements OnInit {
 
     fetchDocuments() {
         this.documentService.getDocuments().subscribe(
-            documents => {
+            (documents) => {
                 this.documents = documents;
             },
-            error => {
+            (error) => {
                 console.error('Error fetching documents:', error);
             }
         );
@@ -47,10 +46,10 @@ export class DashboardComponent implements OnInit {
 
     fetchDepartments() {
         this.documentService.getDepartments().subscribe(
-            departments => {
+            (departments) => {
                 this.departments = departments;
             },
-            error => {
+            (error) => {
                 console.error('Error fetching departments:', error);
             }
         );
@@ -59,13 +58,12 @@ export class DashboardComponent implements OnInit {
     addDocument(value: any): void {
         this.display = true;
         this.selectedDepartment = value;
-
     }
 
     saveDocument(value: any): void {
         this.display = false;
         this.documentService.addDocument(value);
-        window.location.reload()
+        window.location.reload();
         this.fetchDocuments();
     }
 
@@ -83,7 +81,4 @@ export class DashboardComponent implements OnInit {
         this.documentService.deleteDepartment(value);
         this.fetchDepartments();
     }
-
-    public readonly Guid = Guid;
-    protected readonly guid = guid;
 }

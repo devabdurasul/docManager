@@ -1,29 +1,52 @@
 <div>
     <div class="col-12 lg:col-6">
         <div class="">
-            <h5></h5>
-            <p-dialog
-                header="Template"
-                [(visible)]="display"
-                [modal]="true"
-                showEffect="fade"
-                [style]="{ width: '75vw' }"
-                [breakpoints]="{ '960px': '75vw' }"
-            >
-                <editor
-                    apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
-                    [init]="{}"
-                ></editor>
-                <ng-template pTemplate="footer">
-                    <button
-                        pButton
-                        icon="pi pi-check"
-                        (click)="display = false"
-                        label="Save"
-                        class="p-button-outlined"
-                    ></button>
-                </ng-template>
-            </p-dialog>
+            <form [formGroup]="form">
+                <h5></h5>
+                <p-dialog
+                    header="Template"
+                    [(visible)]="display"
+                    [modal]="true"
+                    showEffect="fade"
+                    [style]="{ width: '75vw' }"
+                    [breakpoints]="{ '960px': '75vw' }"
+                >
+                    <h5>Name</h5>
+                    <input
+                        formControlName="name"
+                        class="w-full"
+                        pInputText
+                        id="float-input"
+                        type="text"
+                        placeholder="Name"
+                    />
+
+                    <h5>Description</h5>
+                    <textarea
+                        formControlName="description"
+                        class="w-full mb-4"
+                        rows="3"
+                        cols="30"
+                        placeholder="Your description"
+                        pInputTextarea
+                    ></textarea>
+                    <editor
+                        formControlName="file"
+                        apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
+                        [init]="{}"
+                    ></editor>
+
+                    <ng-template pTemplate="footer">
+                        <button
+                            pButton
+                            icon="pi pi-check"
+                            (click)="onSave()"
+                            label="Save"
+                            class="p-button-outlined"
+                        ></button>
+                    </ng-template>
+                </p-dialog>
+            </form>
             <div class="grid">
                 <div class="col-12">
                     <button
@@ -72,7 +95,7 @@
                         <td style="width: 500px">{{ customer.description }}</td>
                         <td style="width: 500px">
                             <i
-                                [class]="'pi pi-' + customer.file"
+                                [class]="'pi pi-' + 'file'"
                                 style="font-size: 2rem"
                             ></i>
                         </td>
