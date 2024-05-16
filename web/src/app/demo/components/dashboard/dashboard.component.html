@@ -1,75 +1,169 @@
 <div class="flex flex-row m-4 mr-0 justify-content-end h-3rem">
-    <div class="field"><input pinputtext="" [(ngModel)]="newDepartment" id="firstname1" type="text"
-                              placeholder="Department" class="h-3rem p-inputtext p-component p-element">
+    <div class="field">
+        <input
+            pinputtext=""
+            [(ngModel)]="newDepartment"
+            id="firstname1"
+            type="text"
+            placeholder="Department"
+            class="h-3rem p-inputtext p-component p-element"
+        />
     </div>
-    <button pbutton="" label="Submit" class="p-element p-button p-component ml-2" ng-reflect-label="Submit"
-            [disabled]="!newDepartment" (click)="addDepartment(newDepartment)"><span
-        class="p-button-label"><i class="pi pi-plus"></i> Add</span></button>
+    <button
+        pbutton=""
+        label="Submit"
+        class="p-element p-button p-component ml-2"
+        ng-reflect-label="Submit"
+        [disabled]="!newDepartment"
+        (click)="addDepartment(newDepartment)"
+    >
+        <span class="p-button-label"><i class="pi pi-plus"></i> Add</span>
+    </button>
 </div>
-<hr>
+<hr />
 
 <div class="card flex flex-row">
-    <div *ngFor="let department of departments; let i = index" class="department"
-        class="card w-23rem bg-primary-50 mr-3">
+    <div
+        (click)="show(i)"
+        *ngFor="let department of departments; let i = index"
+        class="department"
+        class="card w-23rem bg-primary-50 mr-3"
+    >
         <div class="flex flex-row justify-content-between">
             <h5>{{ department }}</h5>
             <div>
-                <button type="button" icon="pi pi-trash" (click)="deleteDepartment(department)"
-                        class="p-element p-ripple p-button-rounded p-button-danger p-button p-component p-button-icon-only h-2rem w-2rem mr-1"
-                        ng-reflect-icon="pi pi-trash"><span class="p-button-icon pi pi-trash" aria-hidden="true"></span><span
-                    class="p-ink" aria-hidden="true" role="presentation"></span>
+                <button
+                    type="button"
+                    icon="pi pi-trash"
+                    (click)="deleteDepartment(department)"
+                    class="p-element p-ripple p-button-rounded p-button-danger p-button p-component p-button-icon-only h-2rem w-2rem mr-1"
+                    ng-reflect-icon="pi pi-trash"
+                >
+                    <span
+                        class="p-button-icon pi pi-trash"
+                        aria-hidden="true"
+                    ></span
+                    ><span
+                        class="p-ink"
+                        aria-hidden="true"
+                        role="presentation"
+                    ></span>
                 </button>
-                <button type="button" icon="pi pi-trash" (click)="addDocument(department)"
-                        class="p-element p-ripple p-button-rounded p-button-info p-button p-component p-button-icon-only h-2rem w-2rem"
-                        ng-reflect-icon="pi pi-trash"><span class="p-button-icon pi pi-plus"
-                                                            aria-hidden="true"></span><span
-                    class="p-ink" aria-hidden="true" role="presentation"></span>
+                <button
+                    type="button"
+                    icon="pi pi-trash"
+                    (click)="addDocument(department)"
+                    class="p-element p-ripple p-button-rounded p-button-info p-button p-component p-button-icon-only h-2rem w-2rem"
+                    ng-reflect-icon="pi pi-trash"
+                >
+                    <span
+                        class="p-button-icon pi pi-plus"
+                        aria-hidden="true"
+                    ></span
+                    ><span
+                        class="p-ink"
+                        aria-hidden="true"
+                        role="presentation"
+                    ></span>
                 </button>
             </div>
         </div>
 
-        <div class="bg-black-alpha-10 mt-2" style="width: 100%; height: 2px"></div>
+        <div
+            class="bg-black-alpha-10 mt-2"
+            style="width: 100%; height: 2px"
+        ></div>
 
-        <div class="documents">
+        <div class="documents" style="min-height: 250px;">
             <div *ngFor="let document of documents">
                 <app-kanban-card *ngIf="document.department === department">
                     <div
                         class="flex mb-2 surface-card flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer border-round"
-                        id="21">
-                        <div class="flex justify-content-between align-items-center"><span
-                            class="text-900 font-semibold">{{ document.docName }}</span>
+                        id="21"
+                    >
+                        <div
+                            class="flex justify-content-between align-items-center"
+                        >
+                            <span class="text-900 font-semibold">{{
+                                document.docName
+                            }}</span>
                             <div>
-                                <span class="p-button-icon pi pi-trash mr-3" style="color: red;" aria-hidden="true" (click)="deleteDocument(document.docId)"></span>
-                                <span class="p-button-icon pi pi-check" style="color: green;" aria-hidden="true" (click)="moveDocumentToNextDepartment(document.docId, department)"></span>
+                                <span
+                                    class="p-button-icon pi pi-trash mr-3"
+                                    style="color: red"
+                                    aria-hidden="true"
+                                    (click)="deleteDocument(document.docId)"
+                                ></span>
+                                <span
+                                    class="p-button-icon pi pi-check"
+                                    style="color: green"
+                                    aria-hidden="true"
+                                    (click)="
+                                        moveDocumentToNextDepartment(
+                                            document.docId,
+                                            department
+                                        )
+                                    "
+                                ></span>
                             </div>
                         </div>
-                        <div class="text-700" style="word-break: break-word;">{{document.docDescription}}
-                        </div><!---->
+                        <div class="text-700" style="word-break: break-word">
+                            {{ document.docDescription }}
+                        </div>
+                        <!---->
                         <p-progressbar class="p-element">
-                            <div role="progressbar" aria-valuemin="0" aria-valuenow="50" aria-valuemax="100"
-                                 data-pc-name="progressbar" data-pc-section="root"
-                                 class="p-progressbar p-component p-progressbar-determinate" style="height: 0.5rem;">
-                                <div class="p-progressbar-value p-progressbar-value-animate ng-star-inserted"
-                                     style="display: flex; width: 50%;" data-pc-section="value">
+                            <div
+                                role="progressbar"
+                                aria-valuemin="0"
+                                aria-valuenow="50"
+                                aria-valuemax="100"
+                                data-pc-name="progressbar"
+                                data-pc-section="root"
+                                class="p-progressbar p-component p-progressbar-determinate"
+                                style="height: 0.5rem"
+                            >
+                                <div
+                                    class="p-progressbar-value p-progressbar-value-animate ng-star-inserted"
+                                    style="display: flex; width: 50%"
+                                    data-pc-section="value"
+                                >
                                     <div class="p-progressbar-label"></div>
-                                </div></div>
+                                </div>
+                            </div>
                         </p-progressbar>
                         <div
-                            class="flex align-items-center justify-content-between flex-column md:flex-row gap-4 md:gap-0">
+                            class="flex align-items-center justify-content-between flex-column md:flex-row gap-4 md:gap-0"
+                        >
                             <p-avatargroup class="p-element">
                                 <div class="p-avatar-group p-component">
-                                    <p-avatar shape="circle" styleclass="border-2 surface-border"
-                                              class="p-element">
-                                        <div data-pc-name="avatar"
-                                             class="border-2 surface-border p-avatar p-component p-avatar-image p-avatar-circle">
-                                            <img src="assets/demo/images/avatar/ionibowcher.png"></div>
-                                    </p-avatar></div>
+                                    <p-avatar
+                                        shape="circle"
+                                        styleclass="border-2 surface-border"
+                                        class="p-element"
+                                    >
+                                        <div
+                                            data-pc-name="avatar"
+                                            class="border-2 surface-border p-avatar p-component p-avatar-image p-avatar-circle"
+                                        >
+                                            <img
+                                                src="assets/demo/images/avatar/ionibowcher.png"
+                                            />
+                                        </div>
+                                    </p-avatar>
+                                </div>
                             </p-avatargroup>
-                            <div class="flex align-items-center gap-3"><span
-                                class="text-900 font-semibold"><i
-                                class="pi pi-paperclip text-700 mr-2"></i>1</span><span
-                                class="text-900 font-semibold"><i
-                                class="pi pi-clock text-700 mr-2"></i>May 15</span></div></div>
+                            <div class="flex align-items-center gap-3">
+                                <span class="text-900 font-semibold"
+                                    ><i
+                                        class="pi pi-paperclip text-700 mr-2"
+                                    ></i
+                                    >1</span
+                                ><span class="text-900 font-semibold"
+                                    ><i class="pi pi-clock text-700 mr-2"></i
+                                    >May 15</span
+                                >
+                            </div>
+                        </div>
                     </div>
                 </app-kanban-card>
             </div>
@@ -77,26 +171,60 @@
     </div>
 </div>
 
-<p-dialog header="Add document" [(visible)]="display" [modal]="true" showEffect="fade" [style]="{width: '80vw'}"
-          [breakpoints]="{'960px': '75vw'}">
-    <div class="flex flex-column">
 
-        <input type="text" [(ngModel)]="docName" pinputtext="" placeholder="Document name"
-               class="p-inputtext p-component p-element mb-3">
-        <textarea [(ngModel)]="docDescription" rows="5" cols="30" placeholder="Description" pinputtextarea=""
-                  class="p-inputtextarea p-inputtext p-component p-element mb-3" spellcheck="false"></textarea>
-    </div>
-    <editor [(ngModel)]="docContent" apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
+<p-dialog
+    header="Add document"
+    [(visible)]="display"
+    [modal]="true"
+    showEffect="fade"
+    [style]="{ width: '80vw' }"
+    [breakpoints]="{ '960px': '75vw' }"
+>
+    <form [formGroup]="form">
+        <div class="flex flex-column">
+            <input
+                type="text"
+                formControlName="name"
+                pinputtext=""
+                placeholder="Document name"
+                class="p-inputtext p-component p-element mb-3"
+            />
+            <textarea
+                formControlName="description"
+                rows="5"
+                cols="30"
+                placeholder="Description"
+                pinputtextarea=""
+                class="p-inputtextarea p-inputtext p-component p-element mb-3"
+                spellcheck="false"
+            ></textarea>
+        </div>
+        <editor
+            formControlName="file"
+            apiKey="yvz9po2b2jxsmp075o90wbqs365dcm6t1ausmlejjskgllfo"
             [init]="{}"
-    ></editor>
+        ></editor>
+    </form>
     <ng-template pTemplate="footer">
-        <button pButton icon="pi pi-times" (click)="cancel()" label="Cancel" class="p-button-outlined"></button>
-        <button pButton icon="pi pi-check" (click)="saveDocument({
+        <button
+            pButton
+            icon="pi pi-times"
+            (click)="cancel()"
+            label="Cancel"
+            class="p-button-outlined"
+        ></button>
+        <button
+            pButton
+            icon="pi pi-check"
+            (click)="saveDocument({
                 docName: docName,
                 docContent: docContent,
                 docDescription: docDescription,
                 department: selectedDepartment,
                 docId: guid2(),
-            })" label="Save" class="p-button-outlined p-button-success"></button>
+            })"
+            label="Save"
+            class="p-button-outlined p-button-success"
+        ></button>
     </ng-template>
 </p-dialog>
