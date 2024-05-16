@@ -33,7 +33,7 @@
             {
                 new Document
                 {
-                     DocumentName = "Ариза барои пешапрдохт",
+                     DocumentName = "Ариза барои пешапардохт",
                      DocumentTitle = "Ариза барои пешапрдохт",
                      DocumentNumber = "MS-2024-234",
                      DocumentContent = "Ин Аризаи маркетинги пешниҳодшударо барои соли 2024 муайян мекунад...",
@@ -49,8 +49,8 @@
                 },
                 new Document
                 {
-                    DocumentName = "Ҳисоботи молиявӣ дар семоҳаи 1 2023",
-                    DocumentTitle = "Ҳисоботи молиявӣ барои семоҳаи 1 2023",
+                    DocumentName = "Ҳисоботи молиявӣ дар семоҳаи ...",
+                    DocumentTitle = "Ҳисоботи молиявӣ барои семоҳаи ...",
                     DocumentNumber = "FR-2023-Q1",
                     DocumentContent = "Ин гузориш натиҷаҳои молиявии ширкатро дар семоҳаи аввали соли 2023 ҷамъбаст мекунад...",
                     DocumentStatus = DocumentStatus.Approved
